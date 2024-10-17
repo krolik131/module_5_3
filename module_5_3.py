@@ -5,23 +5,58 @@ class House: #Создаём класс House
         self.number_of_floors = number_of_floors #Создаём атрибут количество этажей
 
     def __eq__(self, other):
-        return self.number_of_floors == other.number_of_floors
+        if isinstance(other, House):
+            return self.number_of_floors == other.number_of_floors
+        elif isinstance(other,int):
+            return self.number_of_floors == other
+
     def __lt__(self, other):
-        return self.number_of_floors < other.number_of_floors
+        if isinstance(other, House):
+            return self.number_of_floors < other.number_of_floors
+        elif isinstance(other, int):
+            return self.number_of_floors < other
+
     def __le__(self, other):
-        return self.number_of_floors <= other.number_of_floors
+        if isinstance(other, House):
+            return self.number_of_floors <= other.number_of_floors
+        elif isinstance(other, int):
+            return self.number_of_floors <= other
+
     def __gt__(self, other):
-        return self.number_of_floors > other.number_of_floors
+        if isinstance(other, House):
+            return self.number_of_floors > other.number_of_floors
+        elif isinstance(other, int):
+            return self.number_of_floors > other
+
     def __ge__(self, other):
-        return self.number_of_floors >= other.number_of_floors
+        if isinstance(other, House):
+            return self.number_of_floors >= other.number_of_floors
+        elif isinstance(other, int):
+            return self.number_of_floors >= other
+
     def __ne__(self, other):
-        return self.number_of_floors != other.number_of_floors
+        if isinstance(other, House):
+            return self.number_of_floors != other.number_of_floors
+        elif isinstance(other, int):
+            return self.number_of_floors != other
+
     def __add__(self, value):
-        return self.number_of_floors + value
+        if isinstance(value, House):
+            return self.number_of_floors +value.number_of_floors
+        elif isinstance(value, int):
+            return self.number_of_floors +value
+
     def __radd__(self, value):
-        return self.number_of_floors + value
+        if isinstance(value, House):
+            return self.number_of_floors + value.number_of_floors
+        elif isinstance(value, int):
+            return self.number_of_floors + value
+
     def __iadd__(self, value):
-        return self.number_of_floors + value
+        if isinstance(value, House):
+            return self.number_of_floors + value.number_of_floors
+        elif isinstance(value, int):
+            return self.number_of_floors + value
 
 
     def __len__(self):
@@ -52,4 +87,3 @@ print(h1 >= h2) # __ge__
 print(h1 < h2) # __lt__
 print(h1 <= h2) # __le__
 print(h1 != h2) # __ne__
-
